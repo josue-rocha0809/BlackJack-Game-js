@@ -16,9 +16,34 @@ const crearDeck=()=>{
             deck.push(esp + tipo);
         }
     }
-    console.log(deck);
+   // console.log(deck);
     deck=_.shuffle(deck);  // sheffle para revolver arreglo 
     console.log(deck);   
 }
 
 crearDeck();
+
+
+pedirCarta=()=>{
+    if(deck != 0){
+    const carta=deck.pop();
+    console.log(deck);   
+    console.log(carta); 
+    return carta ;  
+    } else throw 'there arent more cards in the deck'
+    
+}
+
+//pedirCarta();
+
+const valorCarta=(carta)=>{
+    const valor = carta.substring(0,carta.length - 1);
+
+    return (isNaN(valor)) ? 
+    (valor === 'A') ? 11 : 10 
+    : valor*1 
+
+}
+
+const valor = valorCarta( pedirCarta() );
+console.log({valor});
